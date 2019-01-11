@@ -26,7 +26,7 @@
 #ifndef Header_h
 #define Header_h
 
-char * Encrypt(char * s, int * key);
-char * Decrypt(char * s, int * key);
+char * Encrypt(const char * s, const char * key);
+char * Decrypt(const char * s, const char * key);
 
 #endif /* Header_h */

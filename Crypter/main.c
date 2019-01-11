@@ -25,55 +25,24 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Header.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Do you want to *E*ncrypt or *D*ecrypt? ");
-    char action = getchar();
-    char * s = malloc(sizeof(s));
-    char * newS;
-    int keyNumber = -1;
-    int * knptr = &keyNumber;
-    int * key = malloc(sizeof(key));
-    int i = 0;
-    switch (action) {
-        case 'e':
-        case 'E':
-            printf("Input a string: ");
-            scanf("%s", s);
-            while (s[i] != 0) {
-                printf("Input a number: ");
-                scanf("%d", knptr);
-                key[i++] = keyNumber;
-            }
-            newS = Encrypt(s, key);
-            printf("%s\n", newS);
-            free(newS);
-            break;
-        case 'd':
-        case 'D':
-            printf("Input a string: ");
-            scanf("%s", s);
-            while (s[i] != 0) {
-                printf("Input a number: ");
-                scanf("%d", knptr);
-                key[i++] = keyNumber;
-            }
-            newS = Decrypt(s, key);
-            printf("%s\n", newS);
-            free(newS);
-            break;
-        default:
-            printf("Invalid choice.\n");
-            break;
+    if(argc == 4) {
+        if(strcmp(argv[1], "-e") == 0 || strcmp(argv[1], "-E") == 0)
+            printf("%s\n",Encrypt(argv[2], argv[3]));
+        else if(strcmp(argv[1], "-d") == 0 || strcmp(argv[1], "-D") == 0)
+            printf("%s\n", Decrypt(argv[2], argv[3]));
+        else
+            printf("USAGE: crypter [[-e]/[-d] \"Your text goes here\" \"Your key goes here\"]\n");
+    } else {
+        printf("USAGE: crypter [[-e]/[-d] \"Your text goes here\" \"Your key goes here\"]\n");
     }
-    free(s);
-    free(key);
     return 0;
 }
 
-char * Encrypt(char * s, int * key) {
+char * Encrypt(const char * s, const char * key) {
     char * newS = malloc(sizeof(newS));
     char ch;
     int chAsInt;
@@ -84,21 +53,42 @@ char * Encrypt(char * s, int * key) {
             if(ch >= 'A' && ch <= 'Z'){
                 ch -= 'A';
                 chAsInt = (int) ch;
-                chAsInt += key[i];
+                if(key[i] >= 'A' && key[i] <= 'Z')
+                    chAsInt += key[i] - 64;
+                else if(key[i] >= 'a' && key[i] <= 'z')
+                    chAsInt += key[i] - 96;
+                else {
+                    free(newS);
+                    return "ERROR! - Invalid key. Letters only.";
+                }
                 chAsInt%=26;
                 ch = (char) chAsInt;
                 ch += 'A';
             } else if(ch >= 'a' && ch <= 'z') {
                 ch -= 'a';
                 chAsInt = (int) ch;
-                chAsInt += key[i];
+                if(key[i] >= 'A' && key[i] <= 'Z')
+                    chAsInt += key[i] - 64;
+                else if(key[i] >= 'a' && key[i] <= 'z')
+                    chAsInt += key[i] - 96;
+                else {
+                    free(newS);
+                    return "ERROR! - Invalid key. Letters only.";
+                }
                 chAsInt%=26;
                 ch = (char) chAsInt;
                 ch += 'a';
             } else if(ch >= '0' && ch <= '9') {
                 ch -= '0';
                 chAsInt = (int) ch;
-                chAsInt += key[i];
+                if(key[i] >= 'A' && key[i] <= 'Z')
+                    chAsInt += key[i] - 64;
+                else if(key[i] >= 'a' && key[i] <= 'z')
+                    chAsInt += key[i] - 96;
+                else {
+                    free(newS);
+                    return "ERROR! - Invalid key. Letters only.";
+                }
                 chAsInt%=10;
                 ch = (char) chAsInt;
                 ch += 'a';
@@ -109,7 +99,7 @@ char * Encrypt(char * s, int * key) {
     return newS;
 }
 
-char * Decrypt(char * s, int * key) {
+char * Decrypt(const char * s, const char * key) {
     char * newS = malloc(sizeof(newS));
     char ch;
     int chAsInt;
@@ -120,21 +110,42 @@ char * Decrypt(char * s, int * key) {
             if(ch >= 'A' && ch <= 'Z'){
                 ch -= 'A';
                 chAsInt = (int) ch;
-                chAsInt -= key[i];
+                if(key[i] >= 'A' && key[i] <= 'Z')
+                    chAsInt -= key[i] - 64;
+                else if(key[i] >= 'a' && key[i] <= 'z')
+                    chAsInt -= key[i] - 96;
+                else {
+                    free(newS);
+                    return "ERROR! - Invalid key. Letters only.";
+                }
                 chAsInt%=26;
                 ch = (char) chAsInt;
                 ch += 'A';
             } else if(ch >= 'a' && ch <= 'z') {
                 ch -= 'a';
                 chAsInt = (int) ch;
-                chAsInt -= key[i];
+                if(key[i] >= 'A' && key[i] <= 'Z')
+                    chAsInt -= key[i] - 64;
+                else if(key[i] >= 'a' && key[i] <= 'z')
+                    chAsInt -= key[i] - 96;
+                else {
+                    free(newS);
+                    return "ERROR! - Invalid key. Letters only.";
+                }
                 chAsInt%=26;
                 ch = (char) chAsInt;
                 ch += 'a';
             } else if(ch >= '0' && ch <= '9') {
                 ch -= '0';
                 chAsInt = (int) ch;
-                chAsInt -= key[i];
+                if(key[i] >= 'A' && key[i] <= 'Z')
+                    chAsInt -= key[i] - 64;
+                else if(key[i] >= 'a' && key[i] <= 'z')
+                    chAsInt -= key[i] - 96;
+                else {
+                    free(newS);
+                    return "ERROR! - Invalid key. Letters only.";
+                }
                 chAsInt%=10;
                 ch = (char) chAsInt;
                 ch += 'a';
