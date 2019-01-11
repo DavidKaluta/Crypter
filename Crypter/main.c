@@ -39,6 +39,7 @@ int main(int argc, const char * argv[]) {
     int i = 0;
     switch (action) {
         case 'e':
+        case 'E':
             printf("Input a string: ");
             scanf("%s", s);
             while (s[i] != 0) {
@@ -51,6 +52,7 @@ int main(int argc, const char * argv[]) {
             free(newS);
             break;
         case 'd':
+        case 'D':
             printf("Input a string: ");
             scanf("%s", s);
             while (s[i] != 0) {
