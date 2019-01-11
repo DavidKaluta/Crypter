@@ -118,6 +118,8 @@ char * Decrypt(const char * s, const char * key) {
                     free(newS);
                     return "ERROR! - Invalid key. Letters only.";
                 }
+                if(chAsInt < 0)
+                    chAsInt += 26;
                 chAsInt%=26;
                 ch = (char) chAsInt;
                 ch += 'A';
@@ -132,6 +134,8 @@ char * Decrypt(const char * s, const char * key) {
                     free(newS);
                     return "ERROR! - Invalid key. Letters only.";
                 }
+                if(chAsInt < 0)
+                    chAsInt+=26;
                 chAsInt%=26;
                 ch = (char) chAsInt;
                 ch += 'a';
@@ -146,6 +150,8 @@ char * Decrypt(const char * s, const char * key) {
                     free(newS);
                     return "ERROR! - Invalid key. Letters only.";
                 }
+                if(chAsInt < 0)
+                    chAsInt += 10;
                 chAsInt%=10;
                 ch = (char) chAsInt;
                 ch += 'a';
