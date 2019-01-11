@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		593D699D21E8AF2600886A85 /* idk20190111 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idk20190111; sourceTree = BUILT_PRODUCTS_DIR; };
+		593D699D21E8AF2600886A85 /* Crypter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Crypter; sourceTree = BUILT_PRODUCTS_DIR; };
 		593D69A021E8AF2600886A85 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		593D69A721E8B56C00886A85 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,7 +50,7 @@
 		593D699E21E8AF2600886A85 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				593D699D21E8AF2600886A85 /* idk20190111 */,
+				593D699D21E8AF2600886A85 /* Crypter */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		593D699C21E8AF2600886A85 /* idk20190111 */ = {
+		593D699C21E8AF2600886A85 /* Crypter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 593D69A421E8AF2600886A85 /* Build configuration list for PBXNativeTarget "idk20190111" */;
+			buildConfigurationList = 593D69A421E8AF2600886A85 /* Build configuration list for PBXNativeTarget "Crypter" */;
 			buildPhases = (
 				593D699921E8AF2600886A85 /* Sources */,
 				593D699A21E8AF2600886A85 /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = idk20190111;
+			name = Crypter;
 			productName = idk20190111;
-			productReference = 593D699D21E8AF2600886A85 /* idk20190111 */;
+			productReference = 593D699D21E8AF2600886A85 /* Crypter */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 593D699821E8AF2600886A85 /* Build configuration list for PBXProject "idk20190111" */;
+			buildConfigurationList = 593D699821E8AF2600886A85 /* Build configuration list for PBXProject "Crypter" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,7 +110,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				593D699C21E8AF2600886A85 /* idk20190111 */,
+				593D699C21E8AF2600886A85 /* Crypter */,
 			);
 		};
 /* End PBXProject section */
@@ -257,7 +257,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		593D699821E8AF2600886A85 /* Build configuration list for PBXProject "idk20190111" */ = {
+		593D699821E8AF2600886A85 /* Build configuration list for PBXProject "Crypter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				593D69A221E8AF2600886A85 /* Debug */,
@@ -266,7 +266,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		593D69A421E8AF2600886A85 /* Build configuration list for PBXNativeTarget "idk20190111" */ = {
+		593D69A421E8AF2600886A85 /* Build configuration list for PBXNativeTarget "Crypter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				593D69A521E8AF2600886A85 /* Debug */,
