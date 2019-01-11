@@ -42,7 +42,7 @@
 		593D699421E8AF2600886A85 = {
 			isa = PBXGroup;
 			children = (
-				593D699F21E8AF2600886A85 /* idk20190111 */,
+				593D699F21E8AF2600886A85 /* Crypter */,
 				593D699E21E8AF2600886A85 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,13 +55,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		593D699F21E8AF2600886A85 /* idk20190111 */ = {
+		593D699F21E8AF2600886A85 /* Crypter */ = {
 			isa = PBXGroup;
 			children = (
 				593D69A721E8B56C00886A85 /* Header.h */,
 				593D69A021E8AF2600886A85 /* main.c */,
 			);
-			path = idk20190111;
+			path = Crypter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
