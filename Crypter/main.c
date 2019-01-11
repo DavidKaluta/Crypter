@@ -1,6 +1,6 @@
 //
 //  main.c
-//  idk20190111
+//  Crypter
 //
 //  Created by David Kaluta on 11/01/2019.
 //  Copyright © 2019 David Kaluta.
