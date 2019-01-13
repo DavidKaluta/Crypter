@@ -29,11 +29,17 @@
 #include "Header.h"
 
 int main(int argc, const char * argv[]) {
+    char * s;
     if(argc == 4) {
-        if(strcmp(argv[1], "-e") == 0 || strcmp(argv[1], "-E") == 0)
-            printf("%s\n",Encrypt(argv[2], argv[3]));
-        else if(strcmp(argv[1], "-d") == 0 || strcmp(argv[1], "-D") == 0)
-            printf("%s\n", Decrypt(argv[2], argv[3]));
+        if(strcmp(argv[1], "-e") == 0 || strcmp(argv[1], "-E") == 0) {
+            s = Encrypt(argv[2], argv[3]);
+            printf("%s\n",s);
+            free(s);
+        } else if(strcmp(argv[1], "-d") == 0 || strcmp(argv[1], "-D") == 0) {
+            s = Decrypt(argv[2], argv[3]);
+            printf("%s\n", s);
+            free(s);
+        }
         else
             printf("USAGE: crypter [[-e]/[-d] \"Your text goes here\" \"Your key goes here\"]\n");
     } else {
