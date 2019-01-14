@@ -55,25 +55,30 @@ int main(int argc, const char * argv[]) {
             return 2;
         }
     } else if(argc == 3 && (strcmp(argv[1],"-e") == 0 || strcmp(argv[1],"-E") == 0)) {
-        srand((unsigned int) time(NULL));
-        int i = 0;
-        char * key = malloc(sizeof(key));
-        do {
-            if(argv[2][i] == 0)
-                key[i] = 0;
-            else
-                key[i++] = rand()%26 + 'a';
-        } while (argv[2][i] != 0);
-        s = Encrypt(argv[2], key);
-        if(s != NULL) {
-            printf("%s\n", s);
-            free(s);
-            printf("The key is %s\n", key);
+        if(strcmp(argv[1],"-e") == 0 || strcmp(argv[1],"-E") == 0) {
+            srand((unsigned int) time(NULL));
+            int i = 0;
+            char * key = malloc(sizeof(key));
+            do {
+                if(argv[2][i] == 0)
+                    key[i] = 0;
+                else
+                    key[i++] = rand()%26 + 'a';
+            } while (argv[2][i] != 0);
+            s = Encrypt(argv[2], key);
+            if(s != NULL) {
+                printf("%s\n", s);
+                free(s);
+                printf("The key is %s\n", key);
+            } else {
+                printf("ERROR! - Invalid key. Letters only.\n");
+                return 1;
+            }
+            free(key);
         } else {
             printf("ERROR! - Invalid key. Letters only.\n");
             return 1;
         }
-        free(key);
     } else {
         printf("USAGE: crypter [[-e]/[-d] \"Text\" \"Key\"]\n");
         return 2;
