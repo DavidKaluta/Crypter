@@ -54,7 +54,7 @@ int main(int argc, const char * argv[]) {
             printf("USAGE: crypter [[-e]/[-d] \"Text\" \"Key\"]\n");
             return 2;
         }
-    } else if(argc == 3 && (strcmp(argv[1],"-e") == 0 || strcmp(argv[1],"-E") == 0)) {
+    } else if(argc == 3) {
         if(strcmp(argv[1],"-e") == 0 || strcmp(argv[1],"-E") == 0) {
             srand((unsigned int) time(NULL));
             int i = 0;
