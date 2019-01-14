@@ -25,6 +25,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <string.h>
 #include "Header.h"
 
@@ -33,22 +34,54 @@ int main(int argc, const char * argv[]) {
     if(argc == 4) {
         if(strcmp(argv[1], "-e") == 0 || strcmp(argv[1], "-E") == 0) {
             s = Encrypt(argv[2], argv[3]);
-            printf("%s\n",s);
-            free(s);
+            if(s != NULL) {
+                printf("%s\n", s);
+                free(s);
+            } else {
+                printf("ERROR! - Invalid key. Letters only.\n");
+                return 1;
+            }
         } else if(strcmp(argv[1], "-d") == 0 || strcmp(argv[1], "-D") == 0) {
             s = Decrypt(argv[2], argv[3]);
+            if(s != NULL) {
+                printf("%s\n", s);
+                free(s);
+            } else {
+                printf("ERROR! - Invalid key. Letters only.\n");
+                return 1;
+            }
+        } else {
+            printf("USAGE: crypter [[-e]/[-d] \"Text\" \"Key\"]\n");
+            return 2;
+        }
+    } else if(argc == 3 && (strcmp(argv[1],"-e") == 0 || strcmp(argv[1],"-E") == 0)) {
+        srand((unsigned int) time(NULL));
+        int i = 0;
+        char * key = malloc(sizeof(key));
+        do {
+            if(argv[2][i] == 0)
+                key[i] = 0;
+            else
+                key[i++] = rand()%26 + 'a';
+        } while (argv[2][i] != 0);
+        s = Encrypt(argv[2], key);
+        if(s != NULL) {
             printf("%s\n", s);
             free(s);
+            printf("The key is %s\n", key);
+        } else {
+            printf("ERROR! - Invalid key. Letters only.\n");
+            return 1;
         }
-        else
-            printf("USAGE: crypter [[-e]/[-d] \"Text\" \"Key\"]\n");
+        free(key);
     } else {
         printf("USAGE: crypter [[-e]/[-d] \"Text\" \"Key\"]\n");
+        return 2;
     }
     return 0;
 }
 
-char * Encrypt(const char * s, const char * key) {
+char * Encrypt(const char * s,const char * key) {
     char * newS = malloc(sizeof(newS));
     char ch;
     int chAsInt;
@@ -65,7 +98,7 @@ char * Encrypt(const char * s, const char * key) {
                     chAsInt += key[i] - 96;
                 else {
                     free(newS);
-                    return "ERROR! - Invalid key. Letters only.";
+                    return NULL;
                 }
                 chAsInt%=26;
                 ch = (char) chAsInt;
@@ -79,7 +112,7 @@ char * Encrypt(const char * s, const char * key) {
                     chAsInt += key[i] - 96;
                 else {
                     free(newS);
-                    return "ERROR! - Invalid key. Letters only.";
+                    return NULL;
                 }
                 chAsInt%=26;
                 ch = (char) chAsInt;
@@ -93,7 +126,7 @@ char * Encrypt(const char * s, const char * key) {
                     chAsInt += key[i] - 96;
                 else {
                     free(newS);
-                    return "ERROR! - Invalid key. Letters only.";
+                    return NULL;
                 }
                 chAsInt%=10;
                 ch = (char) chAsInt;
@@ -122,7 +155,7 @@ char * Decrypt(const char * s, const char * key) {
                     chAsInt -= key[i] - 96;
                 else {
                     free(newS);
-                    return "ERROR! - Invalid key. Letters only.";
+                    return NULL;
                 }
                 if(chAsInt < 0)
                     chAsInt += 26;
@@ -138,7 +171,7 @@ char * Decrypt(const char * s, const char * key) {
                     chAsInt -= key[i] - 96;
                 else {
                     free(newS);
-                    return "ERROR! - Invalid key. Letters only.";
+                    return NULL;
                 }
                 if(chAsInt < 0)
                     chAsInt+=26;
@@ -154,7 +187,7 @@ char * Decrypt(const char * s, const char * key) {
                     chAsInt -= key[i] - 96;
                 else {
                     free(newS);
-                    return "ERROR! - Invalid key. Letters only.";
+                    return NULL;
                 }
                 if(chAsInt < 0)
                     chAsInt += 10;
