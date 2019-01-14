@@ -41,9 +41,9 @@ int main(int argc, const char * argv[]) {
             free(s);
         }
         else
-            printf("USAGE: crypter [[-e]/[-d] \"Your text goes here\" \"Your key goes here\"]\n");
+            printf("USAGE: crypter [[-e]/[-d] \"Text\" \"Key\"]\n");
     } else {
-        printf("USAGE: crypter [[-e]/[-d] \"Your text goes here\" \"Your key goes here\"]\n");
+        printf("USAGE: crypter [[-e]/[-d] \"Text\" \"Key\"]\n");
     }
     return 0;
 }
