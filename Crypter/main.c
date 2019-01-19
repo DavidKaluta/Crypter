@@ -64,6 +64,10 @@ int main(int argc, const char * argv[]) {
             srand((unsigned int) time(NULL));
             int i = 0;
             char * key = malloc(sizeof(key));
+            if(key == NULL) {
+            	printf("ERROR! - Out of memory. \n");
+            	return 3;
+            }
             do {
                 if(argv[2][i] == 0)
                     key[i] = 0;
@@ -96,6 +100,8 @@ int main(int argc, const char * argv[]) {
 
 char * Encrypt(const char * s,const char * key) {
     char * newS = malloc(sizeof(newS));
+    if(newS == NULL)
+    	return "ERROR! - Out of memory. \n";
     char ch;
     int chAsInt;
     int i = 0;
@@ -155,6 +161,8 @@ char * Encrypt(const char * s,const char * key) {
 
 char * Decrypt(const char * s, const char * key) {
     char * newS = malloc(sizeof(newS));
+    if(newS == NULL)
+    	return "ERROR! - Out of memory. \n";
     char ch;
     int chAsInt;
     int i = 0;
