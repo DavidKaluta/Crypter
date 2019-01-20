@@ -63,7 +63,7 @@ int main(int argc, const char * argv[]) {
         if(strcmp(argv[1],"-e") == 0 || strcmp(argv[1],"-E") == 0) {
             srand((unsigned int) time(NULL));
             int i = 0;
-            char * key = malloc(sizeof(key));
+            char * key = malloc(strlen(argv[2]));
             if(key == NULL) {
             	printf("ERROR! - Out of memory. \n");
             	return 3;
@@ -151,7 +151,7 @@ char * Encrypt(const char * s,const char * key) {
                 }
                 chAsInt%=10;
                 ch = (char) chAsInt;
-                ch += 'a';
+                ch += '0';
             }
         }
         newS[i++] = ch;
@@ -214,11 +214,11 @@ char * Decrypt(const char * s, const char * key) {
                     free(newS);
                     return NULL;
                 }
-                if(chAsInt < 0)
+                while(chAsInt < 0)
                     chAsInt += 10;
                 chAsInt%=10;
                 ch = (char) chAsInt;
-                ch += 'a';
+                ch += '0';
             }
         }
         newS[i++] = ch;

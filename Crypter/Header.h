@@ -29,4 +29,5 @@
 char * Encrypt(const char * s, const char * key);
 char * Decrypt(const char * s, const char * key);
 
+
 #endif /* Header_h */

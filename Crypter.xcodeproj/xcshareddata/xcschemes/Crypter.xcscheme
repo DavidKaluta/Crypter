@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-e &quot;Hello world&quot;"
+            argument = "-e &quot;number 15 burger king foot lettuce&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
