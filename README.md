@@ -8,5 +8,5 @@ Please **DO NOT** use this program for serious work requiring encryption.
 
 ### Prerequisites
 
-* a C compiler
-* Visual Studio/Xcode
+* a C compiler (GCC/Clang)
+* (if on Windows/macOS) Visual Studio/Xcode
