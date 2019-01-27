@@ -99,7 +99,7 @@ int main(int argc, const char * argv[]) {
 }
 
 char * Encrypt(const char * s,const char * key) {
-    char * newS = malloc(sizeof(newS));
+    char * newS = malloc(strlen(s));
     if(newS == NULL)
     	return "ERROR! - Out of memory. \n";
     char ch;
@@ -160,7 +160,7 @@ char * Encrypt(const char * s,const char * key) {
 }
 
 char * Decrypt(const char * s, const char * key) {
-    char * newS = malloc(sizeof(newS));
+    char * newS = malloc(strlen(s));
     if(newS == NULL)
     	return "ERROR! - Out of memory. \n";
     char ch;
